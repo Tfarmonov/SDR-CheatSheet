@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;background:#f5f4f0;color:#1a1a18;min-height:100vh;padding:24px 16px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:20px}
+.tab{padding:7px 14px;font-size:13px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#5f5e5a;cursor:pointer;transition:.15s}
+.tab.active{background:#1a1a18;color:#fff;border-color:#1a1a18}
+.sec{display:none}.sec.on{display:block}
+.card{background:#fff;border:1px solid #d3d1c7;border-radius:12px;padding:16px 18px;margin-bottom:12px}
+.lbl{font-size:11px;font-weight:600;color:#888780;text-transform:uppercase;letter-spacing:.06em;margin-bottom:10px}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+@media(max-width:520px){.row2{grid-template-columns:1fr}.g2{grid-template-columns:1fr!important}}
+.stat{background:#f5f4f0;border-radius:8px;padding:12px 14px}
+.sl{font-size:12px;color:#888780;margin-bottom:3px}
+.sv{font-size:20px;font-weight:600}
+.badge{display:inline-block;font-size:11px;font-weight:500;padding:3px 8px;border-radius:6px;margin:2px 3px 2px 0}
+.bi{background:#e6f1fb;color:#0c447c}
+.bw{background:#faeeda;color:#633806}
+.bs{background:#eaf3de;color:#27500a}
+.bd{background:#fcebeb;color:#791f1f}
+.obj{border-left:3px solid #378add;padding-left:12px;margin-bottom:14px}
+.objq{font-size:13px;color:#5f5e5a;font-style:italic;margin-bottom:4px}
+.obja{font-size:13px;line-height:1.6}
+.copybox{background:#f5f4f0;border-radius:8px;padding:12px 14px;font-size:13px;line-height:1.7;white-space:pre-wrap;margin-top:6px}
+.cbtn{font-size:11px;padding:3px 9px;border:1px solid #d3d1c7;border-radius:6px;background:#fff;cursor:pointer;color:#5f5e5a;margin-top:6px;display:inline-block}
+.cbtn:hover{background:#f5f4f0}
+.acent{background:#fff;border:1px solid #d3d1c7;border-radius:12px;overflow:hidden;margin-bottom:12px}
+.ph{padding:10px 16px;background:#f5f4f0;font-size:12px;font-weight:600;color:#888780}
+.prow{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;padding:12px 16px;border-top:1px solid #e8e6df}
+.step{display:flex;gap:10px;align-items:flex-start;margin-bottom:10px}
+.snum{width:26px;height:26px;border-radius:50%;background:#e6f1fb;color:#0c447c;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px}
+.grow{display:flex;gap:12px;margin-bottom:12px}
+.gterm{font-size:13px;font-weight:600;color:#185fa5;flex-shrink:0;width:72px}
+.gdef{font-size:13px;line-height:1.6}
+@keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<h1 style="font-size:22px;font-weight:600;margin-bottom:4px">PlanetBids — SDR Cheat Sheet</h1>
+<p style="font-size:13px;color:#5f5e5a;margin-bottom:20px">Temurbek Farmonov · Sales Development Representative</p>
+
+<div class="tabs">
+  <div class="tab active" onclick="sw('ov',this)">Company overview</div>
+  <div class="tab" onclick="sw('wedge',this)">Value wedge</div>
+  <div class="tab" onclick="sw('power',this)">Power positions</div>
+  <div class="tab" onclick="sw('out',this)">Outreach templates</div>
+  <div class="tab" onclick="sw('obj',this)">Objection handler</div>
+  <div class="tab" onclick="sw('gloss',this)">Glossary</div>
+  <div class="tab" onclick="sw('terr',this)">Territories</div>
+  <div class="tab" onclick="sw('comp',this)">Competitors</div>
+  <div class="tab" onclick="sw('spin',this)">SPIN selling</div>
+  <div class="tab" onclick="sw('finder',this)">🤖 DM Finder</div>
+</div>
+
+<!-- ═══ COMPANY OVERVIEW ═══ -->
+<div id="ov" class="sec on">
+  <div class="row2">
+    <div class="stat"><div class="sl">Member agencies</div><div class="sv">550+</div></div>
+    <div class="stat"><div class="sl">Daily active users</div><div class="sv">1,000+</div></div>
+    <div class="stat"><div class="sl">Support avg experience</div><div class="sv">13 yrs</div></div>
+    <div class="stat"><div class="sl">Support location</div><div class="sv">US-based</div></div>
+  </div>
+  <div class="card">
+    <div class="lbl">What PlanetBids is</div>
+    <p style="font-size:14px;line-height:1.65">An eProcurement platform built exclusively for the public sector — cities, counties, schools, airports, utilities. Not an ERP with a procurement module bolted on. Built from a single core architecture by people who came from procurement themselves.</p>
+  </div>
+  <div class="card">
+    <div class="lbl">The 3 differentiators</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="border-left:3px solid #378add;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">Built exclusively for public sector</div><div style="font-size:13px;color:#5f5e5a">Competitors like SAP Ariba were built for commercial enterprise. PlanetBids was built by procurement insiders. Support staff avg 13 years GovTech experience.</div></div>
+      <div style="border-left:3px solid #1d9e75;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">The system configures to you</div><div style="font-size:13px;color:#5f5e5a">Most platforms force agencies to change workflows. PlanetBids configures to the agency — critical for municipalities with specific regulatory requirements.</div></div>
+      <div style="border-left:3px solid #ba7517;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">Pre-built vendor network = real competition</div><div style="font-size:13px;color:#5f5e5a">Howard County went from 3–4 bids to 10–12 submittals. More competition = better pricing = better use of taxpayer money.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Proven customer results</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div><span class="badge bs">Howard County, MD</span> 3–4 → 10–12 vendor responses per bid</div>
+      <div><span class="badge bs">Metro Water District, SoCal</span> 20,000 vendor DB + 4,000+ certified firms</div>
+      <div><span class="badge bs">Cap Metro Transportation</span> Fast-tracked to 100% electronic bidding</div>
+      <div><span class="badge bs">East Side Union HSD</span> 100% online submission — no more in-person drop-offs</div>
+      <div><span class="badge bs">West Valley-Mission College</span> "One of the fastest IT transitions for a large government org"</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Awards & recognition</div>
+    <div><span class="badge bw">2025 Inc. Best Workplaces</span><span class="badge bw">AEP Award Winner</span><span class="badge bw">Top Construction Mgmt Solutions 2023</span><span class="badge bw">#1 eProcurement in CA (200+ agencies)</span></div>
+  </div>
+
+  <!-- DM FINDER INLINE -->
+  <div class="card" style="border:1.5px solid #378add">
+    <div class="lbl" style="color:#185fa5">🤖 Decision maker finder</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:4px">Paste any link — a city website, procurement page, or staff directory. <strong style="font-weight:600">Jina Reader</strong> fetches the page for free, then <strong style="font-weight:600">Claude Haiku</strong> extracts decision makers and writes personalized outreach.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;margin-top:6px">
+      <span style="background:#eaf3de;color:#27500a;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px">Jina Reader — free page scraping</span>
+      <span style="background:#e6f1fb;color:#0c447c;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px">Claude Haiku — ~$0.001/run</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div><label style="font-size:12px;color:#5f5e5a;display:block;margin-bottom:4px">Paste a URL</label><input id="ov-url" type="text" placeholder="https://www.raleighnc.gov/purchasing" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18"></div>
+      <div><label style="font-size:12px;color:#5f5e5a;display:block;margin-bottom:4px">Extra context (optional)</label><textarea id="ov-ctx" placeholder="e.g. Currently using Quest, team of 3, had a bid protest last year..." style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18;resize:vertical;min-height:55px"></textarea></div>
+      <div style="display:flex;gap:8px">
+        <button id="ov-btn" onclick="runDMFinder('ov')" style="flex:1;padding:10px 18px;font-size:13px;font-weight:600;background:#1a1a18;color:#fff;border:none;border-radius:8px;cursor:pointer">Analyze & find decision makers ↗</button>
+        <button onclick="localStorage.removeItem('pb_api_key');alert('API key cleared. You\'ll be prompted next run.');" style="padding:10px 12px;font-size:12px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#5f5e5a;cursor:pointer" title="Clear saved API key">🔑</button>
+      </div>
+    </div>
+    <div id="ov-loading" style="display:none;margin-top:12px"><div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#5f5e5a"><div style="width:14px;height:14px;border:2px solid #d3d1c7;border-top-color:#1a1a18;border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0"></div><span id="ov-ltxt">Reading page with Jina...</span></div></div>
+    <div id="ov-result" style="margin-top:8px"></div>
+  </div>
+
+  <div class="card">
+    <div class="lbl">Key decision-maker personas</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div><span class="badge bi">Purchasing / Procurement Director</span> Primary target. Compliance, audit readiness, staff efficiency, fewer bid protests.</div>
+      <div><span class="badge bi">City Manager</span> Taxpayer ROI, public accountability, operational modernization.</div>
+      <div><span class="badge bi">Finance Officer</span> Cost savings, audit exposure, justifying spend to council.</div>
+      <div><span class="badge bi">Public Works Director</span> Construction bids, vendor management, compliance.</div>
+      <div><span class="badge bi">Procurement / Purchasing Agent</span> Day-to-day user. AI tools reducing manual work.</div>
+      <div><span class="badge bw">Pre-Qual Administrator</span> Influencer — manages certification programs, great warm intro path.</div>
+      <div><span class="badge bw">Procurement & Contract Admin</span> Influencer — day-to-day pain points, champion potential.</div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ VALUE WEDGE ═══ -->
+<div id="wedge" class="sec">
+  <div class="card">
+    <div class="lbl">The status quo is the real competitor</div>
+    <p style="font-size:14px;line-height:1.65">You're not competing against other software — you're competing against <em>doing nothing</em>. Your opening provocation should reveal a risk they haven't fully calculated — not insult their current setup.</p>
+  </div>
+  <div class="card">
+    <div class="lbl">Urgency levers — weave into every conversation</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div><span class="badge bd">Public accountability</span> A failed audit or bid protest is a newspaper headline, not just an internal problem</div>
+      <div><span class="badge bd">Compliance deadlines</span> Regulations are tightening — agencies without audit-ready systems are running out of runway</div>
+      <div><span class="badge bw">Staff capacity</span> Lean teams doing manual work can't keep up; risk grows every time a veteran retires</div>
+      <div><span class="badge bi">Peer pressure</span> Nothing moves a government buyer faster than knowing a neighboring city already switched</div>
+      <div><span class="badge bs">No-decision cost</span> Every month they wait = another cycle of manual bids, lapsed certs, missed vendor responses</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Where only PlanetBids wins</div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="border-left:3px solid #378add;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">Built exclusively for public sector by procurement insiders</div><div style="font-size:13px;color:#5f5e5a">Support staff avg 13 years of GovTech experience. Unique, provable, defensible.</div></div>
+      <div style="border-left:3px solid #1d9e75;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">Configures to the agency</div><div style="font-size:13px;color:#5f5e5a">Municipalities have specific regulatory requirements. PlanetBids flips the model — the system adapts to you.</div></div>
+      <div style="border-left:3px solid #ba7517;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:3px">Pre-built network → real taxpayer ROI</div><div style="font-size:13px;color:#5f5e5a">No competitor has a vendor network pre-built at scale for public agencies. More competition = better pricing = defensible to council.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ POWER POSITIONS ═══ -->
+<div id="power" class="sec">
+  <p style="font-size:13px;color:#5f5e5a;margin-bottom:12px">Most SDRs sell the "Is" (feature). Win by selling the "Means" (outcome).</p>
+  <div style="display:flex;gap:16px;margin-bottom:16px;flex-wrap:wrap">
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#5f5e5a"><div style="width:10px;height:10px;border-radius:50%;background:#185fa5"></div>Is (feature)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#5f5e5a"><div style="width:10px;height:10px;border-radius:50%;background:#3b6d11"></div>Does (function)</div>
+    <div style="display:flex;align-items:center;gap:6px;font-size:12px;color:#5f5e5a"><div style="width:10px;height:10px;border-radius:50%;background:#854f0b"></div>Means (outcome)</div>
+  </div>
+
+  <div class="acent">
+    <div class="ph">Compliance & audit trails</div>
+    <div class="prow">
+      <div><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:4px">IS</div><div style="font-size:13px;line-height:1.55">Built-in audit trails and version control</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#3b6d11;margin-bottom:4px">DOES</div><div style="font-size:13px;line-height:1.55">Documents every procurement step with time & date validation — automatically</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#854f0b;margin-bottom:4px">MEANS</div><div style="font-size:13px;line-height:1.55">Walk into any audit without panic — never lose a bid protest again</div></div>
+    </div>
+  </div>
+  <div class="acent">
+    <div class="ph">Vendor management</div>
+    <div class="prow">
+      <div><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:4px">IS</div><div style="font-size:13px;line-height:1.55">Centralized vendor DB with cert & insurance tracking</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#3b6d11;margin-bottom:4px">DOES</div><div style="font-size:13px;line-height:1.55">Auto-notifies when certifications or insurance are expiring</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#854f0b;margin-bottom:4px">MEANS</div><div style="font-size:13px;line-height:1.55">You stop being the reason a contract gets delayed due to a compliance gap</div></div>
+    </div>
+  </div>
+  <div class="acent">
+    <div class="ph">AI-powered solicitation tools</div>
+    <div class="prow">
+      <div><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:4px">IS</div><div style="font-size:13px;line-height:1.55">AI scope writing & Q&A grouping</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#3b6d11;margin-bottom:4px">DOES</div><div style="font-size:13px;line-height:1.55">Writes solicitation language and clusters vendor questions for batch responses</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#854f0b;margin-bottom:4px">MEANS</div><div style="font-size:13px;line-height:1.55">Your team gets hours back weekly and attracts more qualified responses</div></div>
+    </div>
+  </div>
+  <div class="acent">
+    <div class="ph">Vendor competition network</div>
+    <div class="prow">
+      <div><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:4px">IS</div><div style="font-size:13px;line-height:1.55">Pre-built network of thousands of approved vendors</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#3b6d11;margin-bottom:4px">DOES</div><div style="font-size:13px;line-height:1.55">Auto-notifies the right vendors when a relevant bid goes live</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#854f0b;margin-bottom:4px">MEANS</div><div style="font-size:13px;line-height:1.55">More responses, better pricing, stronger justification to council that the process was fair</div></div>
+    </div>
+  </div>
+  <div class="acent">
+    <div class="ph">Emergency operations</div>
+    <div class="prow">
+      <div><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:4px">IS</div><div style="font-size:13px;line-height:1.55">Unlimited user access during declared emergencies</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#3b6d11;margin-bottom:4px">DOES</div><div style="font-size:13px;line-height:1.55">Speeds up procurement during disaster response and recovery</div></div>
+      <div><div style="font-size:11px;font-weight:600;color:#854f0b;margin-bottom:4px">MEANS</div><div style="font-size:13px;line-height:1.55">When a flood hits, you move fast and document everything simultaneously</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ OUTREACH TEMPLATES ═══ -->
+<div id="out" class="sec">
+  <div class="card">
+    <div class="lbl">The outreach arc</div>
+    <div style="display:flex;flex-direction:column;gap:10px;margin-top:4px">
+      <div class="step"><div class="snum">1</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Hook</div><div style="font-size:13px;color:#5f5e5a">A provocative stat or insight they haven't considered</div></div></div>
+      <div class="step"><div class="snum">2</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Pain</div><div style="font-size:13px;color:#5f5e5a">Name the specific problem they're likely living with</div></div></div>
+      <div class="step"><div class="snum">3</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Impact</div><div style="font-size:13px;color:#5f5e5a">What it costs — time, money, risk, reputation</div></div></div>
+      <div class="step"><div class="snum">4</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Shift</div><div style="font-size:13px;color:#5f5e5a">Introduce the idea there's a better way — don't pitch yet</div></div></div>
+      <div class="step"><div class="snum">5</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">Proof</div><div style="font-size:13px;color:#5f5e5a">One peer municipality result that makes it real</div></div></div>
+      <div class="step"><div class="snum">6</div><div><div style="font-size:13px;font-weight:600;margin-bottom:2px">CTA</div><div style="font-size:13px;color:#5f5e5a">Low-stakes ask — 20 min with an AE, no pitch</div></div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Cold email</div>
+    <div class="copybox" id="em1">Subject: [City Name]'s procurement risk / quick question
+
+Hi [First Name],
+
+Most procurement teams I speak with in [State] are managing vendor certifications in spreadsheets and tracking insurance renewals manually — without realizing that a single lapsed certificate or missing audit trail is all it takes to blow up a contract or trigger a bid protest.
+
+Agencies that have modernized are seeing fewer bid protests, more vendor responses, and teams spending significantly less time on manual tasks. Howard County Maryland went from 3–4 responses to 10–12 after making the switch.
+
+I'd love to connect you with one of our Account Executives for a 20-minute conversation — no pitch, just a look at what peer agencies your size are doing differently.
+
+Would [Day] or [Day] work?
+
+Temurbek Farmonov
+Sales Development Representative | PlanetBids</div>
+    <button class="cbtn" onclick="cp('em1',this)">Copy</button>
+  </div>
+  <div class="card">
+    <div class="lbl">Cold call script</div>
+    <div class="copybox" id="cc1">"Hi [Name], this is Temurbek from PlanetBids — do you have 60 seconds?
+
+I work specifically with procurement teams at municipalities in [State], and the reason I'm calling is that most departments I talk to are one audit or one bid protest away from a serious problem — and they don't know it yet because everything feels fine on the surface.
+
+I'm not calling to sell you anything today. I just wanted to see if it made sense to connect you with one of our Account Executives — it's a 20-minute call where we show you what peer agencies your size are doing to cut procurement risk and get more vendors competing on their contracts.
+
+Is that worth 20 minutes of your time this week?"</div>
+    <button class="cbtn" onclick="cp('cc1',this)">Copy</button>
+  </div>
+  <div class="card">
+    <div class="lbl">Quest / free software email</div>
+    <div class="copybox" id="qm1">Subject: Quick question about Quest / [City Name]
+
+Hi [First Name],
+
+I know a lot of municipalities in [State] are using Quest for procurement — free is hard to argue with on the surface.
+
+What agencies consistently tell us after they've outgrown it is that the real cost never shows up on the invoice. It shows up in staff hours tracking vendor certifications, in bid responses they're not getting, and in audit trail gaps that only become a problem when someone asks for documentation.
+
+Worth a 20-minute call with one of our AEs just to benchmark where you stand?
+
+Temurbek Farmonov
+Sales Development Representative | PlanetBids</div>
+    <button class="cbtn" onclick="cp('qm1',this)">Copy</button>
+  </div>
+  <div class="card">
+    <div class="lbl">LinkedIn — connection request</div>
+    <div class="copybox" id="li1">Hi [Name] — I work with procurement teams at municipalities across [Region] helping them reduce audit exposure and drive more vendor competition. Would love to connect.</div>
+    <button class="cbtn" onclick="cp('li1',this)">Copy</button>
+  </div>
+  <div class="card">
+    <div class="lbl">LinkedIn — follow-up after connecting</div>
+    <div class="copybox" id="li2">Thanks for connecting, [Name]. Quick question — is [City Name] still managing vendor certifications manually, or have you moved to a centralized system? Asking because most teams I talk to don't realize how exposed that leaves them until something goes sideways.</div>
+    <button class="cbtn" onclick="cp('li2',this)">Copy</button>
+  </div>
+</div>
+
+<!-- ═══ OBJECTION HANDLER ═══ -->
+<div id="obj" class="sec">
+  <div class="card">
+    <div class="lbl">The golden rule</div>
+    <p style="font-size:14px;line-height:1.65">Your only job is to make the cost of doing nothing feel more uncomfortable than spending 20 minutes with an AE. <strong style="font-weight:600">Never ask for more than the meeting.</strong></p>
+  </div>
+  <div class="card">
+    <div class="lbl">Official objection navigator</div>
+    <div style="border:1px solid #d3d1c7;border-radius:10px;overflow:hidden">
+      <div style="display:grid;grid-template-columns:190px 1fr">
+        <div style="background:#0f2d4a;padding:14px 16px;display:flex;align-items:center"><div style="font-size:12px;font-weight:600;color:#fff;font-style:italic">"We already have a system."</div></div>
+        <div style="background:#eef2f8;padding:14px 16px;border-left:1px solid #d3d1c7"><div style="font-size:13px;line-height:1.6;margin-bottom:6px">Acknowledge it — then ask where the friction still lives. Most systems miss pieces. PlanetBids was built end-to-end for public procurement.</div><div style="font-size:12px;color:#2255b8;font-style:italic">↳ Are there parts of your current system that feel clunky or time-consuming?</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr;border-top:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:14px 16px;display:flex;align-items:center"><div style="font-size:12px;font-weight:600;color:#fff;font-style:italic">"We need finance/ERP integration."</div></div>
+        <div style="background:#f5f7fc;padding:14px 16px;border-left:1px solid #d3d1c7"><div style="font-size:13px;line-height:1.6;margin-bottom:6px">PlanetBids is purpose-built for procurement. Many clients run it alongside their ERP — it handles procurement better than any all-in-one tool.</div><div style="font-size:12px;color:#2255b8;font-style:italic">↳ If it reduced procurement time/cost, would it be worth looking at side-by-side?</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr;border-top:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:14px 16px;display:flex;align-items:center"><div style="font-size:12px;font-weight:600;color:#fff;font-style:italic">"Budget is tight."</div></div>
+        <div style="background:#eef2f8;padding:14px 16px;border-left:1px solid #d3d1c7"><div style="font-size:13px;line-height:1.6;margin-bottom:6px">That's exactly why agencies evaluate us — 55–88% admin reduction often offsets the cost. Fewer staff hours on manual work = real savings.</div><div style="font-size:12px;color:#2255b8;font-style:italic">↳ What does a manual bid cycle cost your team in hours today?</div></div>
+      </div>
+      <div style="display:grid;grid-template-columns:190px 1fr;border-top:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:14px 16px;display:flex;align-items:center"><div style="font-size:12px;font-weight:600;color:#fff;font-style:italic">"We just went through an implementation."</div></div>
+        <div style="background:#f5f7fc;padding:14px 16px;border-left:1px solid #d3d1c7"><div style="font-size:13px;line-height:1.6;margin-bottom:6px">Timing matters. Stay in touch, provide value. PlanetBids implements fast — when they're ready to evaluate again, be first.</div><div style="font-size:12px;color:#2255b8;font-style:italic">↳ When does your current contract expire? I'd love to reconnect at the right time.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Additional objection flips</div>
+    <div style="display:flex;flex-direction:column;gap:14px;margin-top:4px">
+      <div class="obj"><div class="objq">"We're happy with our current process."</div><div class="obja">That's exactly what most agencies say before a bid protest or audit request — everything feels fine until it isn't. Worth 20 minutes just to benchmark where you stand?</div></div>
+      <div class="obj"><div class="objq">"Send me some information."</div><div class="obja">Happy to — and our AE can tailor it to [City Name]'s situation. Would [day] work for a 20-minute call so the info is actually relevant to you?</div></div>
+      <div class="obj"><div class="objq">"We use Quest / free software."</div><div class="obja">Free software costs nothing upfront and everything on the backend. It's in staff hours, bid protest risk, and compliance gaps. Can I ask — when your team needs to pull documentation for an audit, how long does that take?</div></div>
+      <div class="obj"><div class="objq">"We're not looking to make changes."</div><div class="obja">Most of our clients weren't either — until we showed them what their peer agencies were already doing. No pressure, just 20 minutes to see if there's a gap worth knowing about.</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ GLOSSARY ═══ -->
+<div id="gloss" class="sec">
+  <div class="card">
+    <div class="lbl">Procurement solicitation types</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+      <div class="grow"><div class="gterm">RFP</div><div class="gdef"><strong style="font-weight:600">Request for Proposal</strong> — agency describes a problem, vendors propose a solution + price. Open-ended; evaluates approach and cost. Used when the solution isn't fully defined.</div></div>
+      <div class="grow"><div class="gterm">ITB</div><div class="gdef"><strong style="font-weight:600">Invitation to Bid</strong> — agency knows exactly what it wants, vendors submit a price. Lowest qualified bid wins. Used for construction, supplies, equipment.</div></div>
+      <div class="grow"><div class="gterm">RFQ</div><div class="gdef"><strong style="font-weight:600">Request for Quote</strong> — simpler, often informal pricing request for smaller purchases. Vendors just submit a price quote.</div></div>
+      <div class="grow"><div class="gterm">RFSQ</div><div class="gdef"><strong style="font-weight:600">Request for Supplier Qualifications</strong> — pre-screening vendors before any contract. Vendors submit credentials to get on an approved list.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Key terms</div>
+    <div style="display:flex;flex-direction:column;gap:12px;margin-top:4px">
+      <div class="grow"><div class="gterm">Bid protest</div><div class="gdef">A formal challenge filed by a vendor who believes a procurement wasn't fair. Without an airtight audit trail, agencies are exposed — and it's public record.</div></div>
+      <div class="grow"><div class="gterm">Audit trail</div><div class="gdef">A complete, time-stamped record of every action during procurement. PlanetBids creates this automatically.</div></div>
+      <div class="grow"><div class="gterm">eProcurement</div><div class="gdef">Using software to manage the full solicitation lifecycle online instead of paper and email.</div></div>
+      <div class="grow"><div class="gterm">AEP</div><div class="gdef">Achievement of Excellence in Procurement — national award for innovation and professionalism. A credibility signal with prospects.</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Proof stat to always have ready</div>
+    <p style="font-size:14px;line-height:1.65">One city ran <strong style="font-weight:600">126 solicitations</strong> (64 RFPs, 54 ITBs, 7 RFQs, 1 RFSQ) through PlanetBids in a single year — proof the platform handles real, high-volume workloads at scale.</p>
+  </div>
+</div>
+
+<!-- ═══ TERRITORIES ═══ -->
+<div id="terr" class="sec">
+  <div class="card">
+    <div class="lbl">2026 Sales territories</div>
+    <p style="font-size:12px;color:#888780;margin-bottom:14px">All rep territories include Government AND EDU</p>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div style="border-left:4px solid #7f77dd;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Triston D — West</div><div style="font-size:13px;color:#5f5e5a">CA, WA, OR, NV, AZ</div></div>
+      <div style="border-left:4px solid #5dcaa5;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Tim G — West</div><div style="font-size:13px;color:#5f5e5a">CA, WA, OR, NV, AZ, AK, HI</div></div>
+      <div style="border-left:4px solid #f09975;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">TBD — Central</div><div style="font-size:13px;color:#5f5e5a">MT, WY, UT, CO, NM, KS, OK, ID</div></div>
+      <div style="border-left:4px solid #97c459;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Bernadette F. — Midwest</div><div style="font-size:13px;color:#5f5e5a">IL, WI, SD, ND, MN, IN, IA, NE, MO, MI, OH</div></div>
+      <div style="border-left:4px solid #378add;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Brian K — Northeast</div><div style="font-size:13px;color:#5f5e5a">MA, PA, MD, DE, NJ, RI, ME, VT, NY, CT, NH</div></div>
+      <div style="border-left:4px solid #ef9f27;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Becki G — Southeast</div><div style="font-size:13px;color:#5f5e5a">FL, GA, AL, LA, AR, MS, TN, SC, VA, WV, KY, NC</div></div>
+      <div style="border-left:4px solid #4d85c8;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Texas Government</div><div style="font-size:13px;color:#5f5e5a">Split: Richard Coronado + Triston D</div></div>
+      <div style="border-left:4px solid #d4537e;padding-left:12px"><div style="font-size:13px;font-weight:600;margin-bottom:2px">Richard Coronado — EDU Specialist</div><div style="font-size:13px;color:#5f5e5a">CA: K-12 &nbsp;|&nbsp; TX: K-12 + Higher Ed &nbsp;|&nbsp; Central: EDU</div></div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Who we're booking demos with</div>
+    <div style="margin-bottom:14px"><div style="font-size:12px;font-weight:600;color:#888780;margin-bottom:6px">Primary targets</div><span class="badge bi">Purchasing Director</span><span class="badge bi">Procurement Director</span><span class="badge bi">Procurement Agent</span><span class="badge bi">Purchasing Agent</span><span class="badge bi">Public Works Director</span></div>
+    <div><div style="font-size:12px;font-weight:600;color:#888780;margin-bottom:6px">Influencers</div><span class="badge bw">Pre-Qual Administrator</span><span class="badge bw">Procurement & Contract Administrator</span></div>
+  </div>
+  <div class="card">
+    <div class="lbl">ICP segments</div>
+    <div style="display:flex;flex-direction:column;gap:8px;font-size:13px">
+      <div><span class="badge bs">Bread & butter</span> City, County & State Governments — cities are the primary focus</div>
+      <div><span class="badge bi">EDU</span> Community Colleges, Universities & School Districts</div>
+      <div><span class="badge bi">Infrastructure</span> Ports, Transportation & Airport agencies</div>
+      <div><span class="badge bi">Construction</span> General Construction Companies & Contractors</div>
+      <div><span class="badge bi">Health</span> Health Facilities & Hospitals</div>
+      <div><span class="badge bi">Services</span> Professional Services & Consulting Firms</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">PlanetBids modules — full product list</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;font-size:13px" class="g2">
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Vendor Management</div><div style="color:#5f5e5a;font-size:12px">Configurable registration, no duplicate records</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Bid Management</div><div style="color:#5f5e5a;font-size:12px">Issue, monitor, evaluate, and award bids</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Contract Management</div><div style="color:#5f5e5a;font-size:12px">Up-to-date contract info for all stakeholders</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Insurance Cert Mgmt</div><div style="color:#5f5e5a;font-size:12px">Automate, maintain & retrieve insurance certs</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Business Cert / Pre-Qual</div><div style="color:#5f5e5a;font-size:12px">Manage SBE, Minority, Diversity & contractor pre-qual</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Emergency Operations</div><div style="color:#5f5e5a;font-size:12px">Vendor management during declared emergencies</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Evaluation Management</div><div style="color:#5f5e5a;font-size:12px">Fairly assess bidders, identify best proposals</div></div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px"><div style="font-weight:600;font-size:12px;margin-bottom:3px">Bid Spec Library</div><div style="color:#5f5e5a;font-size:12px">Thousands of past projects to write better bids faster</div></div>
+    </div>
+    <p style="font-size:12px;color:#888780;margin-top:10px">Calendar reminders & emails are automated so contract renewals, insurance, and deadlines are never missed.</p>
+  </div>
+</div>
+
+<!-- ═══ COMPETITORS ═══ -->
+<div id="comp" class="sec">
+  <div class="card">
+    <div class="lbl">Official competitor comparison</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;font-size:13px;border-collapse:collapse;overflow:hidden">
+        <thead><tr style="background:#0f2d4a">
+          <th style="text-align:left;padding:10px 14px;font-weight:600;color:#fff;width:20%">Competitor</th>
+          <th style="text-align:left;padding:10px 14px;font-weight:600;color:#fff;width:40%">Their weakness</th>
+          <th style="text-align:left;padding:10px 14px;font-weight:600;color:#1d9e75;width:40%">Our advantage</th>
+        </tr></thead>
+        <tbody>
+          <tr style="background:#eef2f8"><td style="padding:12px 14px;font-weight:600;color:#2255b8;border-bottom:1px solid #d3d1c7">OpenGov</td><td style="padding:12px 14px;border-bottom:1px solid #d3d1c7">Complex setup, high fees, impersonal support at scale</td><td style="padding:12px 14px;color:#0f6e56;font-weight:500;border-bottom:1px solid #d3d1c7">Faster implementation, customizable vendor comms, human CS</td></tr>
+          <tr style="background:#f5f7fc"><td style="padding:12px 14px;font-weight:600;color:#2255b8;border-bottom:1px solid #d3d1c7">Bonfire</td><td style="padding:12px 14px;border-bottom:1px solid #d3d1c7">Email-heavy, messy vendor registration, steep learning curve</td><td style="padding:12px 14px;color:#0f6e56;font-weight:500;border-bottom:1px solid #d3d1c7">Automated vendor mgmt, intuitive UI, procurement-expert support</td></tr>
+          <tr style="background:#eef2f8"><td style="padding:12px 14px;font-weight:600;color:#2255b8;border-bottom:1px solid #d3d1c7">DemandStar</td><td style="padding:12px 14px;border-bottom:1px solid #d3d1c7">Limited bid features, no history beyond 2 yrs, no addenda tracking</td><td style="padding:12px 14px;color:#0f6e56;font-weight:500;border-bottom:1px solid #d3d1c7">Full lifecycle management, compliance tracking, comprehensive reporting</td></tr>
+          <tr style="background:#f5f7fc"><td style="padding:12px 14px;font-weight:600;color:#2255b8;border-bottom:1px solid #d3d1c7">IonWave</td><td style="padding:12px 14px;border-bottom:1px solid #d3d1c7">Outdated system, slow fragmented modules, limited reporting</td><td style="padding:12px 14px;color:#0f6e56;font-weight:500;border-bottom:1px solid #d3d1c7">Modern integrated platform, fast and accurate reporting</td></tr>
+          <tr style="background:#eef2f8"><td style="padding:12px 14px;font-weight:600;color:#2255b8">BidNet</td><td style="padding:12px 14px">Stagnant UI, vendor-paid model limits agency access</td><td style="padding:12px 14px;color:#0f6e56;font-weight:500">Continuously updated, fully agency-focused, dedicated support</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">Deep dive — OpenGov</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px" class="g2">
+      <div style="background:#eaf3de;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#27500a;margin-bottom:5px">Strengths</div><div style="font-size:12px;color:#3b6d11;line-height:1.6">Modern UI · Broad platform (budgeting + procurement) · Strong analytics · ERP integrations</div></div>
+      <div style="background:#fcebeb;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#791f1f;margin-bottom:5px">Weaknesses</div><div style="font-size:12px;color:#a32d2d;line-height:1.6">Complex setup · High fees · Impersonal support at scale · Overkill for mid-size agencies</div></div>
+    </div>
+    <div style="border-left:3px solid #378add;padding-left:10px"><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:3px">Your wedge</div><div style="font-size:13px;line-height:1.6">"OpenGov is a broad government platform that treats procurement as one module among many. PlanetBids implements faster, costs less, and the support team actually knows procurement — they're not a generic CS team managing a city-wide platform."</div></div>
+  </div>
+  <div class="card">
+    <div class="lbl">Deep dive — Bonfire</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px" class="g2">
+      <div style="background:#eaf3de;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#27500a;margin-bottom:5px">Strengths</div><div style="font-size:12px;color:#3b6d11;line-height:1.6">Strong evaluation/scoring · FOIA compliance · Real-time committee collaboration</div></div>
+      <div style="background:#fcebeb;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#791f1f;margin-bottom:5px">Weaknesses</div><div style="font-size:12px;color:#a32d2d;line-height:1.6">Email-heavy · Messy vendor registration · Steep learning curve · Less vendor network depth</div></div>
+    </div>
+    <div style="border-left:3px solid #378add;padding-left:10px"><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:3px">Your wedge</div><div style="font-size:13px;line-height:1.6">"Bonfire relies heavily on email and vendors struggle with registration — fewer responses on your bids. PlanetBids automates vendor management and has the network to drive real competition."</div></div>
+  </div>
+  <div class="card">
+    <div class="lbl">Deep dive — DemandStar</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px" class="g2">
+      <div style="background:#eaf3de;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#27500a;margin-bottom:5px">Strengths</div><div style="font-size:12px;color:#3b6d11;line-height:1.6">Free for agencies · Broad supplier network · Easy setup · Automated notifications</div></div>
+      <div style="background:#fcebeb;border-radius:8px;padding:10px"><div style="font-size:11px;font-weight:600;color:#791f1f;margin-bottom:5px">Weaknesses</div><div style="font-size:12px;color:#a32d2d;line-height:1.6">No bid history beyond 2 yrs · No addenda tracking · 30–50% coverage gaps in key states</div></div>
+    </div>
+    <div style="border-left:3px solid #378add;padding-left:10px"><div style="font-size:11px;font-weight:600;color:#185fa5;margin-bottom:3px">Your wedge</div><div style="font-size:13px;line-height:1.6">"DemandStar gives you two years of history and no addenda tracking — that's a compliance gap waiting to happen. PlanetBids gives you full lifecycle management and the audit trail your team needs."</div></div>
+  </div>
+  <div class="card">
+    <div class="lbl">Quick-reference battle card</div>
+    <div style="overflow-x:auto">
+      <table style="width:100%;font-size:12px;border-collapse:collapse">
+        <thead><tr style="background:#f5f4f0">
+          <th style="text-align:left;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7"></th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">PlanetBids</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">OpenGov</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">DemandStar</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">Bonfire</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">IonWave</th>
+          <th style="text-align:center;padding:8px;font-weight:600;color:#5f5e5a;border-bottom:1px solid #d3d1c7">BidNet</th>
+        </tr></thead>
+        <tbody>
+          <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;color:#5f5e5a">Fast implementation</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td></tr>
+          <tr style="background:#fafaf8"><td style="padding:7px 8px;border-bottom:1px solid #eee;color:#5f5e5a">Full lifecycle mgmt</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td></tr>
+          <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;color:#5f5e5a">Addenda tracking</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td></tr>
+          <tr style="background:#fafaf8"><td style="padding:7px 8px;border-bottom:1px solid #eee;color:#5f5e5a">Human/expert support</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td></tr>
+          <tr><td style="padding:7px 8px;border-bottom:1px solid #eee;color:#5f5e5a">Agency-focused model</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#888">~</td><td style="text-align:center;padding:7px;border-bottom:1px solid #eee;color:#a32d2d">✗</td></tr>
+          <tr style="background:#fafaf8"><td style="padding:7px 8px;color:#5f5e5a">Modern integrated platform</td><td style="text-align:center;padding:7px;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;color:#888">~</td><td style="text-align:center;padding:7px;color:#27500a;font-weight:600">✓</td><td style="text-align:center;padding:7px;color:#a32d2d">✗</td><td style="text-align:center;padding:7px;color:#a32d2d">✗</td></tr>
+        </tbody>
+      </table>
+      <p style="font-size:11px;color:#888780;margin-top:6px">✓ = strong &nbsp; ~ = partial &nbsp; ✗ = weak/absent</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ SPIN SELLING ═══ -->
+<div id="spin" class="sec">
+  <div class="card">
+    <div class="lbl">What is SPIN selling?</div>
+    <p style="font-size:14px;line-height:1.65">SPIN is a research-backed framework for complex B2B sales. Instead of pitching features, you guide the prospect through a conversation that makes them feel the pain themselves — so the meeting with the AE becomes their idea, not your ask.</p>
+  </div>
+  <div class="card">
+    <div class="lbl">Discovery questions that open deals</div>
+    <p style="font-size:12px;color:#888780;margin-bottom:12px">Official PlanetBids discovery framework — use in sequence.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" class="g2">
+      <div style="border-radius:10px;overflow:hidden;border:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:10px 14px"><div style="font-size:13px;font-weight:600;color:#fff">Current State</div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">How does your team manage the bid process today?</div></div>
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">Are you using a platform — or is it largely manual?</div></div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:10px 14px"><div style="font-size:13px;font-weight:600;color:#fff">Pain Discovery</div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">Where does the most time get lost in a typical procurement cycle?</div></div>
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">How do you currently handle vendor communication during a bid?</div></div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:10px 14px"><div style="font-size:13px;font-weight:600;color:#fff">Compliance & Risk</div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">How confident are you in your current audit trail?</div></div>
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">Have you had to deal with a protest or a compliance issue recently?</div></div>
+        </div>
+      </div>
+      <div style="border-radius:10px;overflow:hidden;border:1px solid #d3d1c7">
+        <div style="background:#0f2d4a;padding:10px 14px"><div style="font-size:13px;font-weight:600;color:#fff">Future State</div></div>
+        <div style="padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">If you could fix one thing about your procurement process, what would it be?</div></div>
+          <div style="display:flex;gap:8px;align-items:flex-start"><div style="width:16px;height:16px;border-radius:50%;background:#2255b8;flex-shrink:0;margin-top:2px"></div><div style="font-size:13px;line-height:1.55">What would "great" look like for your team 12 months from now?</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">S — Situation questions</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:10px">Establish context. Don't overdo it — too many feel like an interrogation.</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"How does your team currently manage the procurement process — is everything online, or still partially manual?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"What system are you using today to post bids and manage vendor submissions?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"How many solicitations does your agency run in a typical year?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"How many people are on your procurement team right now?"</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">P — Problem questions</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:10px">Uncover pain. Let them say it — not you.</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"How difficult is it to track vendor certifications and insurance renewals?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"When you need to pull documentation for a public records request or audit, how long does that take?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"Are you happy with the number of vendor responses on bids, or do the same few vendors keep showing up?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"Has your team ever had to deal with a bid protest? How did that go?"</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">I — Implication questions</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:10px">Amplify the pain. Connect problems to bigger consequences.</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If a vendor's insurance lapsed and no one caught it, what would that mean for an active contract or a public records request?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If you're getting 3–4 responses per bid instead of 10–12, how much is that affecting pricing — and how does that look to council?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If a bid protest came in tomorrow and you needed a full audit trail in 48 hours, how confident would you be?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"When staff spends hours on manual tracking instead of strategic work, what does that mean for capacity if someone retires?"</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">N — Need-payoff questions</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:10px">Get them to describe the solution themselves. Then bridge to the AE meeting.</p>
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If a system automatically tracked every cert expiration and sent your team an alert before anything lapsed — how much time would that save?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If you could walk into any audit knowing every step was already documented — how much stress would that take off your team?"</div>
+      <div style="background:#f5f4f0;border-radius:6px;padding:8px 10px;font-size:13px">"If your vendor response rate doubled — from 4 to 10 — how would that change conversations with council?"</div>
+    </div>
+  </div>
+  <div class="card">
+    <div class="lbl">SPIN-to-CTA bridge</div>
+    <div class="copybox" id="spin-cta">"That's exactly what agencies like [peer city] are experiencing after switching to PlanetBids. I don't want to oversell it on a cold call — but I think it's worth 20 minutes with one of our Account Executives who works specifically with agencies your size. Would [Day] or [Day] work?"</div>
+    <button class="cbtn" onclick="cp('spin-cta',this)">Copy</button>
+  </div>
+  <div class="card">
+    <div class="lbl">Quick reference</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px" class="g2">
+      <div style="background:#e6f1fb;border-radius:8px;padding:10px"><div style="font-size:12px;font-weight:600;color:#0c447c;margin-bottom:4px">S — Situation</div><div style="font-size:12px;color:#185fa5">Current tools, team size, solicitation volume</div></div>
+      <div style="background:#faeeda;border-radius:8px;padding:10px"><div style="font-size:12px;font-weight:600;color:#633806;margin-bottom:4px">P — Problem</div><div style="font-size:12px;color:#854f0b">Manual processes, low bid count, audit gaps</div></div>
+      <div style="background:#fcebeb;border-radius:8px;padding:10px"><div style="font-size:12px;font-weight:600;color:#791f1f;margin-bottom:4px">I — Implication</div><div style="font-size:12px;color:#a32d2d">Risk, headlines, taxpayer dollars, staff burnout</div></div>
+      <div style="background:#eaf3de;border-radius:8px;padding:10px"><div style="font-size:12px;font-weight:600;color:#27500a;margin-bottom:4px">N — Need-payoff</div><div style="font-size:12px;color:#3b6d11">Get them to envision the fix → bridge to AE meeting</div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ═══ DM FINDER (standalone) ═══ -->
+<div id="finder" class="sec">
+  <div class="card">
+    <div class="lbl">🤖 Decision maker finder</div>
+    <p style="font-size:13px;color:#5f5e5a;margin-bottom:4px">Paste any link — a city website, procurement page, or staff directory. <strong style="font-weight:600">Jina Reader</strong> fetches the page for free, then <strong style="font-weight:600">Claude Haiku</strong> extracts decision makers and writes personalized outreach.</p>
+    <div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px;margin-top:6px">
+      <span style="background:#eaf3de;color:#27500a;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px">Jina Reader — free page scraping</span>
+      <span style="background:#e6f1fb;color:#0c447c;font-size:11px;font-weight:600;padding:3px 8px;border-radius:6px">Claude Haiku — ~$0.001/run</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:10px">
+      <div><label style="font-size:12px;color:#5f5e5a;display:block;margin-bottom:4px">Paste a URL</label><input id="fn-url" type="text" placeholder="https://www.raleighnc.gov/purchasing" style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18"></div>
+      <div><label style="font-size:12px;color:#5f5e5a;display:block;margin-bottom:4px">Extra context (optional)</label><textarea id="fn-ctx" placeholder="e.g. Currently using Quest, team of 3, had a bid protest last year..." style="width:100%;padding:9px 12px;font-size:13px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#1a1a18;resize:vertical;min-height:60px"></textarea></div>
+      <div style="display:flex;gap:8px">
+        <button id="fn-btn" onclick="runDMFinder('fn')" style="flex:1;padding:10px 18px;font-size:13px;font-weight:600;background:#1a1a18;color:#fff;border:none;border-radius:8px;cursor:pointer">Analyze & find decision makers ↗</button>
+        <button onclick="localStorage.removeItem('pb_api_key');alert('API key cleared.');" style="padding:10px 12px;font-size:12px;border:1px solid #d3d1c7;border-radius:8px;background:#fff;color:#5f5e5a;cursor:pointer" title="Clear saved API key">🔑</button>
+      </div>
+    </div>
+    <div style="margin-top:10px;background:#f5f4f0;border-radius:8px;padding:10px 12px;font-size:12px;color:#5f5e5a;line-height:1.6">
+      <strong style="font-weight:600;display:block;margin-bottom:4px">First time setup</strong>
+      You'll be prompted for your Anthropic API key on first run. Get a free key at <span style="color:#185fa5">console.anthropic.com</span> — it's saved locally in your browser and never sent anywhere except directly to Anthropic. Works on GitHub Pages too.
+    </div>
+    <div id="fn-loading" style="display:none;margin-top:12px"><div style="display:flex;align-items:center;gap:10px;font-size:13px;color:#5f5e5a"><div style="width:14px;height:14px;border:2px solid #d3d1c7;border-top-color:#1a1a18;border-radius:50%;animation:spin .8s linear infinite;flex-shrink:0"></div><span id="fn-ltxt">Reading page with Jina...</span></div></div>
+    <div id="fn-result" style="margin-top:12px"></div>
+  </div>
+</div>
+
+<script>
+function sw(id,el){
+  document.querySelectorAll('.sec').forEach(function(s){s.classList.remove('on')});
+  document.querySelectorAll('.tab').forEach(function(t){t.classList.remove('active')});
+  document.getElementById(id).classList.add('on');
+  el.classList.add('active');
+}
+
+function cp(id,btn){
+  var t=document.getElementById(id).innerText;
+  navigator.clipboard.writeText(t).then(function(){
+    var p=btn.textContent;btn.textContent='Copied!';
+    setTimeout(function(){btn.textContent=p},2000);
+  }).catch(function(){alert('Copy failed')});
+}
+
+// ── API KEY (replace with your own for GitHub Pages) ──
+var ANTHROPIC_KEY = '';
+
+function getApiKey() {
+  if (ANTHROPIC_KEY) return ANTHROPIC_KEY;
+  var stored = localStorage.getItem('pb_api_key');
+  if (stored) return stored;
+  return null;
+}
+
+function promptForKey() {
+  var key = window.prompt('Enter your Anthropic API key to use the DM Finder.\n\nGet a free key at console.anthropic.com\n\nIt will be saved locally in your browser.');
+  if (key && key.trim().startsWith('sk-')) {
+    localStorage.setItem('pb_api_key', key.trim());
+    return key.trim();
+  } else if (key) {
+    alert('That doesn\'t look like a valid API key (should start with sk-). Try again.');
+    return null;
+  }
+  return null;
+}
+
+function runDMFinder(prefix) {
+  var url = document.getElementById(prefix+'-url').value.trim();
+  var ctx = document.getElementById(prefix+'-ctx').value.trim();
+  if (!url) { alert('Please paste a URL first.'); return; }
+  if (url.indexOf('http') !== 0) { alert('Please enter a full URL starting with https://'); return; }
+
+  var apiKey = getApiKey();
+  if (!apiKey) {
+    apiKey = promptForKey();
+    if (!apiKey) return;
+  }
+
+  var loadEl  = document.getElementById(prefix+'-loading');
+  var resEl   = document.getElementById(prefix+'-result');
+  var ltxtEl  = document.getElementById(prefix+'-ltxt');
+  var btn     = document.getElementById(prefix+'-btn');
+  btn.disabled = true; btn.textContent = 'Analyzing...';
+  loadEl.style.display = 'block';
+  resEl.innerHTML = '';
+
+  var msgs = ['Reading page with Jina...','Extracting contact info...','Building outreach strategy...','Almost done...'];
+  var mi = 0;
+  var iv = setInterval(function(){ mi=(mi+1)%msgs.length; ltxtEl.textContent=msgs[mi]; }, 2500);
+
+  // Step 1 — Jina Reader fetches & converts the page to clean text (free, no key)
+  var jinaUrl = 'https://r.jina.ai/' + url;
+  fetch(jinaUrl, { headers: { 'Accept': 'text/plain', 'X-Return-Format': 'text' } })
+    .then(function(r) {
+      if (!r.ok) throw new Error('Jina could not read that page (status '+r.status+'). Try a different URL.');
+      return r.text();
+    })
+    .then(function(pageText) {
+      // Trim to ~6000 chars to keep Haiku cost tiny
+      var trimmed = pageText.slice(0, 6000);
+      ltxtEl.textContent = 'Identifying decision makers...';
+
+      var prompt = 'You are a B2B sales researcher for PlanetBids, a government eProcurement platform. An SDR needs to identify and prospect decision makers from the page content below.\n\nPAGE CONTENT:\n"""\n'+trimmed+'\n"""\n\nSOURCE URL: '+url+'\nEXTRA CONTEXT: '+(ctx||'None')+'\n\nPlanetBids primary targets: Purchasing Director, Procurement Director, Procurement Agent, Purchasing Agent, Public Works Director.\nInfluencers: Pre-Qual Administrator, Procurement and Contract Administrator.\n\nBased ONLY on the page content above, extract real names, titles, emails, phone numbers if present. Then generate personalized outreach using specific details from the page.\n\nReturn ONLY raw JSON (no markdown, no backticks):\n{"agencyName":"Full agency name","agencyOverview":"2-3 sentence summary using details from the page","currentSystem":"eProcurement system mentioned or Unknown","decisionMakers":[{"name":"Real name from page or Not listed","title":"Exact title from page or most likely title","email":"Email from page or Not public","phone":"Phone from page or Not public","why":"Why this person","painPoints":["specific pain 1","specific pain 2","specific pain 3"],"linkedInSearch":"firstname lastname agency city procurement"}],"influencers":[{"name":"Name or Not listed","title":"Title","why":"How they help"}],"emailSubject":"Personalized subject referencing something specific from the page","emailOpener":"Two sentences personalized to this agency using a real detail from the page","callOpener":"One-sentence cold call opener specific to this agency","urgencyAngle":"Strongest urgency angle for this agency type","peerProof":"Most relevant PlanetBids win: Howard County MD (3-4 to 10-12 bids), Metro Water District SoCal (20k vendors), Cap Metro (100% electronic), East Side Union HSD, or West Valley-Mission College"}';
+
+      // Step 2 — Claude Haiku analyzes the pre-fetched text (very cheap, ~$0.001 per run)
+      return fetch('https://api.anthropic.com/v1/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'x-api-key': apiKey,
+          'anthropic-version': '2023-06-01',
+          'anthropic-dangerous-direct-browser-access': 'true'
+        },
+        body: JSON.stringify({
+          model: 'claude-haiku-4-5-20251001',
+          max_tokens: 1000,
+          messages: [{ role: 'user', content: prompt }]
+        })
+      });
+    })
+    .then(function(r) { return r.json(); })
+    .then(function(data) {
+      clearInterval(iv);
+      if (data.error) throw new Error(data.error.message || 'API error');
+      var raw = '';
+      for (var i=0; i<data.content.length; i++) { if (data.content[i].type==='text') raw+=data.content[i].text; }
+      raw = raw.replace(/```json|```/g,'').trim();
+      var s=raw.indexOf('{'), e=raw.lastIndexOf('}');
+      if (s===-1||e===-1) throw new Error('Could not parse response — try a different URL');
+      renderDMResult(JSON.parse(raw.slice(s,e+1)), url, prefix);
+      btn.disabled=false; btn.textContent='Analyze & find decision makers ↗';
+      loadEl.style.display='none';
+    })
+    .catch(function(err) {
+      clearInterval(iv);
+      // If auth error, clear saved key so user can re-enter
+      if (err.message && err.message.indexOf('auth') > -1) localStorage.removeItem('pb_api_key');
+      resEl.innerHTML='<div style="border-left:3px solid #e24b4a;padding-left:12px;margin-top:8px"><div style="font-size:13px;font-weight:600;color:#a32d2d;margin-bottom:3px">Something went wrong</div><div style="font-size:12px;color:#5f5e5a">'+err.message+'<br><br>Tips: Try a city procurement or staff directory page. Make sure your API key is valid.</div></div>';
+      btn.disabled=false; btn.textContent='Analyze & find decision makers ↗';
+      loadEl.style.display='none';
+    });
+}
+
+function renderDMResult(d,sourceUrl,prefix){
+  var uid=prefix+'_'+Date.now();
+  var resEl=document.getElementById(prefix+'-result');
+  var dms='';
+  for(var i=0;i<d.decisionMakers.length;i++){
+    var dm=d.decisionMakers[i];
+    var contact='';
+    if(dm.email&&dm.email!=='Not public')contact+='<span style="background:#e6f1fb;border-radius:4px;padding:2px 8px;font-size:12px;color:#0c447c;margin-right:6px">✉ '+dm.email+'</span>';
+    if(dm.phone&&dm.phone!=='Not public')contact+='<span style="background:#eaf3de;border-radius:4px;padding:2px 8px;font-size:12px;color:#27500a">📞 '+dm.phone+'</span>';
+    var pains='';
+    for(var j=0;j<dm.painPoints.length;j++)pains+='<div style="font-size:12px;padding-left:8px;border-left:2px solid #d3d1c7;margin-bottom:3px">'+dm.painPoints[j]+'</div>';
+    var nameStr=(dm.name&&dm.name.indexOf('Not listed')===-1)?'<span style="font-size:13px;font-weight:600">'+dm.name+'</span>':'';
+    dms+='<div style="background:#f5f4f0;border-radius:8px;padding:10px 12px;margin-bottom:8px"><div style="display:flex;flex-wrap:wrap;gap:6px;align-items:center;margin-bottom:5px"><span class="badge bi" style="margin:0">'+dm.title+'</span>'+nameStr+'</div>'+(contact?'<div style="display:flex;flex-wrap:wrap;gap:6px;margin-bottom:6px">'+contact+'</div>':'')+'<div style="font-size:12px;color:#5f5e5a;margin-bottom:5px">'+dm.why+'</div>'+pains+'<div style="font-size:11px;color:#888780;margin-top:6px"><strong style="font-weight:600">LinkedIn:</strong> '+dm.linkedInSearch+'</div></div>';
+  }
+  var infl='';
+  for(var k=0;k<d.influencers.length;k++){
+    var inf=d.influencers[k];
+    var iname=(inf.name&&inf.name!=='Not listed')?'<div style="font-size:13px;font-weight:600;margin-bottom:2px">'+inf.name+'</div>':'';
+    infl+='<div style="display:flex;gap:10px;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap">'+iname+'<span class="badge bw">'+inf.title+'</span><div style="font-size:13px;color:#5f5e5a">'+inf.why+'</div></div>';
+  }
+  resEl.innerHTML='<div style="border-top:1px solid #eee;padding-top:14px;margin-top:8px">'
+    +'<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px"><div style="font-size:13px;font-weight:600">'+(d.agencyName||'Agency')+'</div><a href="'+sourceUrl+'" target="_blank" style="font-size:11px;color:#185fa5;text-decoration:none">View source ↗</a></div>'
+    +'<p style="font-size:13px;line-height:1.6;margin-bottom:8px">'+d.agencyOverview+'</p>'
+    +(d.currentSystem?'<div style="margin-bottom:10px"><span class="badge bw">System</span> <span style="font-size:12px">'+d.currentSystem+'</span></div>':'')
+    +'<div style="font-size:11px;font-weight:600;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin-bottom:8px">Decision makers</div>'+dms
+    +(infl?'<div style="font-size:11px;font-weight:600;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 6px">Influencers</div>'+infl:'')
+    +'<div style="font-size:11px;font-weight:600;color:#888780;text-transform:uppercase;letter-spacing:.05em;margin:10px 0 6px">Outreach</div>'
+    +'<div style="font-size:12px;color:#888780;margin-bottom:3px">Subject line</div>'
+    +'<div style="background:#f5f4f0;border-radius:6px;padding:7px 10px;font-size:13px;font-weight:600;margin-bottom:8px">'+d.emailSubject+'</div>'
+    +'<div style="font-size:12px;color:#888780;margin-bottom:3px">Email opener</div>'
+    +'<div class="copybox" id="'+uid+'-email">'+d.emailOpener+'\n\n[Continue with pain \u2192 proof \u2192 CTA]\n\nTemurbek Farmonov | Sales Development Representative | PlanetBids</div>'
+    +'<button class="cbtn" onclick="cp(\''+uid+'-email\',this)">Copy</button>'
+    +'<div style="font-size:12px;color:#888780;margin:10px 0 3px">Cold call opener</div>'
+    +'<div class="copybox" id="'+uid+'-call">'+d.callOpener+'</div>'
+    +'<button class="cbtn" onclick="cp(\''+uid+'-call\',this)">Copy</button>'
+    +'<div style="border-left:3px solid #e24b4a;padding-left:10px;font-size:12px;line-height:1.6;margin:10px 0 8px"><strong style="font-weight:600;font-size:11px;color:#888780;display:block;margin-bottom:2px">URGENCY ANGLE</strong>'+d.urgencyAngle+'</div>'
+    +'<div style="background:#eaf3de;border-radius:6px;padding:8px 10px;font-size:12px;color:#3b6d11;line-height:1.6"><strong style="font-weight:600">Peer proof:</strong> '+d.peerProof+'</div>'
+    +'</div>';
+  resEl.scrollIntoView({behavior:'smooth',block:'nearest'});
+}
+</script>
+</body>
+</html>
